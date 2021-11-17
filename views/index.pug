@@ -1,26 +1,10 @@
 extends layout
 
 block content
-  div.container
-    div.card
-      div.card-header
-        div.backdrop
-        div.card-title Pizza Hut
-        img.card-header-image(src='https://www.pizzahut.com/assets/w/images/homepage_deal/Sidekick_DinnerMVPBundle_SmallDesktop_352x282.jpg')
-      div.card-body
-        div.edit
-          a(href='#') Edit
-        div.card-details
-          div.category Italian
-          div.rating
-            span &#X2b50;
-            span &#X2b50;
-            span &#X2b50;
-            span &#X2b50;
-        div.description
-          //a single pipe | allows you to type free floating text
-          | sdfsadfsdafasdfsadfsadfsdaf sdfasdfasdf
-          | sdfsadfsdafasdfsadfsadfsdaf sdfasdfasdf
-          | sdfsadfsdafasdfsadfsadfsdaf sdfasdfasdf
-          | sdfsadfsdafasdfsadfsadfsdaf sdfasdfasdf
-          | sdfsadfsdafasdfsadfsadfsdaf sdfasdfasdf
+    include mixins/restaurantCard
+    div.container
+        div.add-button-row
+            a.button.save(href="/add") Add Restaurant
+    div.container
+        each restaurant in restaurants
+            +restaurantCard(restaurant)
