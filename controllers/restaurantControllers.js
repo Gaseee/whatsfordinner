@@ -1,4 +1,4 @@
-const {Restaurant} = require('../models')
+const {Restaurant} = require('../models');
 const categories = ['Italian', 'Fast Food'];
 
 module.exports.viewAll = async function(req, res, next) {
@@ -22,7 +22,7 @@ module.exports.updateRestaurant = async function(req, res) {
                 image: req.body.image,
                 description: req.body.description
         },
-        {
+            {
             where:
                 {
                     id: req.params.id
@@ -32,7 +32,7 @@ module.exports.updateRestaurant = async function(req, res) {
 };
 
 module.exports.deleteRestaurant = async function(req, res) {
-    await Restaurant.destory(
+    await Restaurant.destroy(
         {
             where:
                 {

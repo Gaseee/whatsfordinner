@@ -25,5 +25,5 @@ mixin restaurantForm(restaurant, actionURL, mode, title)
                 div.button-row
                     a.button.cancel(href='/') Cancel
                     if (mode==='edit')
-                        a.button.delete(href=`/delete/#{restaurant.id}`) Delete
+                        a.button.delete(href=`/delete/${restaurant.id}`) Delete
                     botton.botton.save(type='submit') Submit
