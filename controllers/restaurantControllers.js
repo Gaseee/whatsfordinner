@@ -1,5 +1,5 @@
 const {Restaurant} = require('../models');
-const categories = ['Italian', 'Fast Food', 'Snacks', ];
+const categories = ['Italian', 'Burgers', 'Snacks/Drinks', 'Asian Food', 'Sandwich'];
 
 module.exports.viewAll = async function(req, res, next) {
     let searchCategories = ['All'];
@@ -11,18 +11,18 @@ module.exports.viewAll = async function(req, res, next) {
     let searchRandom = req.query.random || false;
     if (searchCategory==='All'){
         restaurants = await Restaurant.findAll();
-    } else {
-        restaurants = await Restaurant.findAll( {
-            where: {
-                category: searchCategory
-                    }
-        });
-    }
-    if (restaurants.length > 0 && searchRandom) {
-        let randomIndex = getRandomInt(restaurants.length);
-        restaurants = [restaurants[randomIndex]];
-    }
-    res.render('index', {restaurants, categories:searchCategories, searchCategory, searchRandom});
+} else {
+    restaurants = await Restaurant.findAll( {
+        where: {
+            category: searchCategory
+        }
+    });
+}
+if (restaurants.length > 0 && searchRandom) {
+    let randomIndex = getRandomInt(restaurants.length);
+    restaurants = [restaurants[randomIndex]];
+}
+res.render('index', {restaurants, categories:searchCategories, searchCategory, searchRandom});
 };
 
 module.exports.renderEditForm = async function(req, res, next) {
